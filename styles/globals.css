@@ -1,9 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -15,12 +24,58 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #56bbd0;
+  border-radius: 40px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Font */
+
+.font-arvo {
+  font-family: 'Arvo', serif;
+}
+
+.font-dm {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Backgrounds and Images */
+
+.hero-bg {
+  background-image: url('../assets/images/banner-bg.png');
+  z-index: -10;
+}
+
+/* Animation - Pricing section */
+
+@keyframes come-up {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
   }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.come-up {
+  animation: come-up 1s linear 2s alternate;
 }
